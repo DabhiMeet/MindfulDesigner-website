@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,31 +15,38 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
-    { href: '/services', label: 'Services' },
-    { href: '/contact', label: 'Contact Us' },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gray-900/95 backdrop-blur-md border-b border-gray-800"
+          : "bg-transparent"
+      }`}
+    >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <span className="text-xl font-bold text-white">DigitalAgency</span>
+          {/* ✅ Only Logo (no text) */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/MindfulDesigner.png" // place logo file inside /public
+              alt="Mindful Designer Logo"
+              width={160} // adjust size here
+              height={160}
+              className="h-20 w-auto object-contain"
+              priority
+              quality={100}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,16 +57,14 @@ const Navbar = () => {
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   pathname === link.href
-                    ? 'text-blue-400'
-                    : 'text-gray-300 hover:text-white'
+                    ? "text-blue-400"
+                    : "text-gray-300 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <button className="btn-primary text-sm">
-              Get Started
-            </button>
+            <button className="btn-primary text-sm">Get Started</button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,8 +107,8 @@ const Navbar = () => {
                   href={link.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                     pathname === link.href
-                      ? 'text-blue-400 bg-gray-800'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                      ? "text-blue-400 bg-gray-800"
+                      : "text-gray-300 hover:text-white hover:bg-gray-800"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -122,4 +128,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
