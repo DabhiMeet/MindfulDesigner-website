@@ -1,78 +1,128 @@
-'use client';
+"use client";
 
-import Layout from '@/components/Layout';
-import { useState } from 'react';
+import Layout from "@/components/Layout";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    service: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    service: "",
+    message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      message: "",
     });
   };
 
   const contactInfo = [
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
         </svg>
       ),
-      title: 'Address',
-      content: '123 Business Street, Suite 100<br />New York, NY 10001',
+      title: "Address",
+      content:
+        "Plot no:25, Soundarya Villa, opp. Shukan Bunglows<br />Nikol-Naroda Road <br />Ahmeadabad, 382350",
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+          />
         </svg>
       ),
-      title: 'Phone',
-      content: '+1 (555) 123-4567<br />+1 (555) 987-6543',
+      title: "Phone",
+      content: "+91-9924222509",
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
         </svg>
       ),
-      title: 'Email',
-      content: 'hello@digitalagency.com<br />support@digitalagency.com',
+      title: "Email",
+      content: "designermindful@gmail.com",
     },
     {
       icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
         </svg>
       ),
-      title: 'Business Hours',
-      content: 'Monday - Friday: 9AM - 6PM<br />Saturday: 10AM - 4PM',
+      title: "Business Hours",
+      content: "Monday - Friday: 9AM - 6PM<br />Saturday: 10AM - 4PM",
     },
   ];
 
@@ -87,7 +137,8 @@ export default function ContactPage() {
               Get In Touch
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Ready to start your next project? Let&apos;s discuss how we can help bring your vision to life.
+              Ready to start your next project? Let&apos;s discuss how we can
+              help bring your vision to life.
             </p>
           </div>
         </div>
@@ -105,7 +156,10 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -120,7 +174,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -135,10 +192,13 @@ export default function ContactPage() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Phone Number
                     </label>
                     <input
@@ -152,7 +212,10 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
                       Company
                     </label>
                     <input
@@ -168,7 +231,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="service"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Service Interested In
                   </label>
                   <select
@@ -189,7 +255,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -228,7 +297,7 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold text-white mb-2">
                         {info.title}
                       </h3>
-                      <div 
+                      <div
                         className="text-gray-400"
                         dangerouslySetInnerHTML={{ __html: info.content }}
                       />
@@ -243,24 +312,46 @@ export default function ContactPage() {
                   Follow Us
                 </h3>
                 <div className="flex space-x-4">
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                  <a
+                    href="https://www.linkedin.com/in/mindful-designer-9855a8337?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <a
+                    href="https://www.instagram.com/mind.ful_designer?igsh=YWZ0eTBpa2tpeGQ="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243 0-.49.122-.928.49-1.243.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.368.315.49.753.49 1.243 0 .49-.122.928-.49 1.243-.369.315-.807.49-1.297.49z" />
                     </svg>
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                  </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243 0-.49.122-.928.49-1.243.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.368.315.49.753.49 1.243 0 .49-.122.928-.49 1.243-.369.315-.807.49-1.297.49z"/>
+                  <a
+                    href="https://wa.me/919924222509"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 32 32"
+                    >
+                      <path d="M16.001 3.2c-7.067 0-12.8 5.733-12.8 12.8 0 2.267.6 4.467 1.733 6.4l-1.867 6.4 6.533-1.6c1.867 1.067 3.867 1.6 6.067 1.6 7.067 0 12.8-5.733 12.8-12.8S23.068 3.2 16.001 3.2zm0 23.467c-1.867 0-3.6-.533-5.067-1.467l-.4-.267-3.867.933.933-3.733-.267-.4c-1.067-1.6-1.6-3.467-1.6-5.333 0-5.6 4.667-10.133 10.267-10.133s10.267 4.533 10.267 10.133-4.667 10.267-10.267 10.267zm5.467-7.467c-.267-.133-1.6-.8-1.867-.933-.267-.133-.533-.133-.8.133-.267.267-.933 1.067-1.2 1.333-.133.133-.267.133-.533 0-.8-.4-1.6-.8-2.267-1.467a9.165 9.165 0 01-1.6-2.133c-.133-.267 0-.4.133-.533.133-.133.267-.267.4-.4.133-.133.133-.267.267-.4.133-.133.133-.267.267-.4.133-.133.133-.267.133-.4s-.133-.267-.133-.4c-.133-.133-.8-1.867-1.067-2.533-.267-.667-.533-.667-.8-.667-.267 0-.4 0-.667.133-.133.133-.533.267-.8.667-.267.4-1.067 1.067-1.067 2.667s1.067 3.2 1.2 3.467c.133.133 2.133 3.333 5.067 4.533.707.267 1.253.533 1.707.667.72.227 1.373.193 1.893.12.58-.08 1.6-.667 1.827-1.307.227-.64.227-1.187.16-1.307-.08-.133-.227-.2-.493-.333z" />
                     </svg>
                   </a>
                 </div>
@@ -274,14 +365,13 @@ export default function ContactPage() {
       <section className="section-padding bg-gray-800">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Find Us
-            </h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Find Us</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Visit our office or get in touch with us. We&apos;re always happy to meet with potential clients.
+              Visit our office or get in touch with us. We&apos;re always happy
+              to meet with potential clients.
             </p>
           </div>
-          
+
           <div className="bg-gray-700 rounded-xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2154567890123!2d-74.00601508459372!3d40.71277537933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a165bedccab%3A0x2cb2ddf003b5ae01!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123"
@@ -299,4 +389,4 @@ export default function ContactPage() {
       </section>
     </Layout>
   );
-} 
+}
